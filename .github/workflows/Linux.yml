@@ -1,5 +1,12 @@
 name: Linux
 on: [push, pull_request,repository_dispatch]
+  push:
+  pull_request:
+  workflow_dispatch:
+  release:
+    organization: duckdb
+    repository: duckdb
+
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}-${{ github.head_ref || '' }}-${{ github.base_ref || '' }}-${{ github.ref != 'refs/heads/main' || github.sha }}
   cancel-in-progress: true
